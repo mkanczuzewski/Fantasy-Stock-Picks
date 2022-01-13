@@ -1,0 +1,66 @@
+<article class="post">
+ <div class="post-container">
+  <div class="row">
+    <div class="col-11">
+     
+{{!-- Post Info --}}   
+<div class="card-posts rounded text-white bg-dark mb-3">
+<div class="card-body">
+<div class="username">
+<svg class="bi bi-person-circle" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M13.468 12.37C12.758 11.226 11.195 10 8 10s-4.757 1.225-5.468 2.37A6.987 6.987 0 0 0 8 15a6.987 6.987 0 0 0 5.468-2.63z"/>
+<path fill-rule="evenodd" d="M8 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+<path fill-rule="evenodd" d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z"/>
+  </svg>
+<a href="/single-profile/{{user.id}}" target="_blank" class="text-warning" style="text-decoration: none">{{user.username}}</a> 
+ </div>
+
+{{!-- Post Text --}} 
+ <div class="text">
+ {{post_text}}
+ </div>
+ 
+ {{!-- Likes --}} 
+<div class="meta">
+ {{vote_count}} {{format_plural "Like" vote_count}}
+<svg class="bi bi-dot" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+ <path fill-rule="evenodd" d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
+ </svg>
+    
+{{!-- Comment Count  --}} 
+ {{comments.length}} {{format_plural "Comment" comments.length}} 
+<svg class="bi bi-dot" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
+</svg>
+    
+     {{!-- Created Date --}} 
+    Posted on {{format_date created_at}}</a>
+
+     <svg class="bi bi-dot" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+     <path fill-rule="evenodd" d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
+     </svg>
+    
+     {{!-- View Post --}} 
+     <a href="/post/{{id}}" id="view-post" style="text-decoration: none" target="_blank" class="text-warning">View Post</a>
+                
+     {{!-- View Comments --}} 
+     {{#if comments}}
+      <svg class="bi bi-dot" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+     <path fill-rule="evenodd" d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
+</svg>
+    <a class="btn text-warning" id="view-comment-btn" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">View Comments</a>
+    <div class="collapse" id="collapseExample">
+    <div class="card-comments card-body">
+    <div class="overflow-auto">
+    {{> comments comments}}
+</div>
+ </div>
+</div>
+    {{/if}}                
+ </div>
+     </div>
+    </div>
+</div>
+ </div>
+</div>
+</article>
