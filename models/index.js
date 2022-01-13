@@ -20,7 +20,7 @@ Comment.belongsTo(User, {
   foreignKey: 'user_id',
 })
 
-User.belongsTo(Account, {
+User.hasMany(Account, {
     foreignKey: 'user_id',
   })
   
