@@ -5,7 +5,7 @@ const sequelize = require('../config/connection');
 class Account extends Model {}
 
 //create fields/columns for Account model
-Post.init(
+Account.init(
     {
       id: {
             type: DataTypes.INTEGER,
