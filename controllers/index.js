@@ -1,14 +1,10 @@
 const router = require('express').Router();
+const apiRoutes = require('./api');
 
-const userRoutes = require('./user-routes.js');
-const postRoutes = require('./post-routes');
-const commentRoutes = require('./comment-routes');
-// const dashboardRoutes = require('./dashboard-routes.js');
+router.use('/api', apiRoutes);
 
-// router.use('/dashboard', dashboardRoutes);
-
-router.use('/users', userRoutes);
-router.use('/posts', postRoutes);
-router.use('/comments', commentRoutes);
+router.use((req, res) => {
+  res.send("<h1>Wrong Route!</h1>")
+});
 
 module.exports = router;
