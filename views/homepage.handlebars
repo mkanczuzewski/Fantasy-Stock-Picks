@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+{{#if loggedIn}}
+    <form class="new-post-form">
+        <input type="text" class="form-control bg-dark text-white" id="post-input" name="post-text" placeholder=" " />    
+        <button type="submit" class="btn btn-warning" id="btn-post">Post</button>
+    </form>
+{{/if}}
+    </div>
+  </div>
+</div>
+
+<div class="container-title">
+  <div class="row">
+    <div class="col-12">
+      <div id="header-leaderboard-container">
+        <h2 class="text-warning" id="header-leaderboard">Leaderboard</h2>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<ol class="post-list" style="height: 80vh; overflow-y: scroll">
+<!-- posts array -->
+{{#each posts as |post|}}
+  <ul>
+      {{> post-info post }} 
+    </div>
+  </ul>
+{{/each}}
+</ol>
+
+
+
+{{#if loggedIn}}
+<script src="/javascript/add-post.js"></script>
+<script src="/javascript/search.js"></script>
+{{/if}}

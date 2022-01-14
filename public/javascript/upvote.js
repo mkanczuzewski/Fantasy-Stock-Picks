@@ -2,7 +2,7 @@
 async function upvoteClickHandler(event) {
     event.preventDefault();
 
-  // taking id from http://localhost:3001/post/1
+
   const id = window.location.toString().split('/')[
     window.location.toString().split('/').length - 1
   ];
