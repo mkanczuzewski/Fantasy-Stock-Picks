@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const res = require('express/lib/response');
 const sequelize = require('../config/connection');
-const { Post, User, Comment} = require('../models');
+const { Post, User, Comment, Account} = require('../models');
 
 // get all posts for homepage
 router.get('/', (req, res) => {
@@ -44,33 +44,34 @@ router.get('/', (req, res) => {
 });
 
 router.get('/profile', (req,res)=>{
-  User.findAll({
+  Account.findAll({
     attributes: [
       'id',
-      'username',
+      'stock_name',
+      'stock_price',
+      'shares',
+      'user_id',
     ],
     include: [
       {
-        model:Post,
-        attributes: ['id','title','post_text','user_id'],
-
+        model: User,
+        attributes: ['username']
       }
     ]
-  })
-
-.then(dbPostData => {
-  // const posts = dbPostData.map(post => post.get({ plain: true }));
-  // marks the page as logginIn for if statements handlebars. 
-  console.log('line64')
-  console.log('fired',dbPostData)
-  res.render('profile', {
     
+  })
+  .then(dbPostData => {
+    const posts = dbPostData.map(post => post.get({ plain: true }));
+    // marks the page as logginIn for if statements handlebars. 
+    res.render('profile', {
+      posts,
+      loggedIn: req.session.loggedIn
+    });
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
   });
-})
-.catch(err => {
-  console.log(err);
-  res.status(500).json(err);
-});
 })
 
 
