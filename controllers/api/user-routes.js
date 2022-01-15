@@ -52,7 +52,7 @@ router.get('/:id', (req, res) => {
 router.post('/users', (req, res) => {
   User.create({
     username: req.body.username,
-    email: req.body.email,
+    // email: req.body.email,
     password: req.body.password
   })
     .then(dbUserData => {
@@ -78,13 +78,14 @@ router.post('/users', (req, res) => {
 router.post('/login', (req, res) => {
   User.findOne({
     where: {
-      email: req.body.email
+      // email: req.body.email
+      username: req.body.username
     }
   }).then(dbUserData => {
-    if (!dbUserData) {
-      res.status(400).json({ message: 'No user with that email address!' });
-      return;
-    }
+    // if (!dbUserData) {
+    //   res.status(400).json({ message: 'No user with that email address!' });
+    //   return;
+    // }
 
     const validPassword = dbUserData.checkPassword(req.body.password);
 
