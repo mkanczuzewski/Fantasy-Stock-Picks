@@ -62,6 +62,7 @@ router.get('/profile', (req,res)=>{
   })
   .then(dbPostData => {
     const posts = dbPostData.map(post => post.get({ plain: true }));
+    console.log(posts)
     // marks the page as logginIn for if statements handlebars. 
     res.render('profile', {
       posts,
