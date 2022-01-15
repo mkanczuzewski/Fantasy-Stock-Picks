@@ -7,15 +7,9 @@ body {
 }
 
 .info {
-  float: left;
+  float: right;
   text-align: top;
   padding-left: 20px;
-}
-.pic {
-  float: left;
-}
-img {
-  border-radius: 40px;
 }
 
 .counter {
