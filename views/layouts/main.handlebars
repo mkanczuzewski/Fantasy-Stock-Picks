@@ -22,26 +22,30 @@
       <li class="nav-item">
         <a class="nav-link text-white" href="/profile">My Profile</a>
       </li>
-       <li class="nav-item">
-        <a class="nav-link text-white" href="/signup">Sign-up</a>
-      </li>
-    {{else}}
-    {{!--<form class="form-inline my-2 my-lg-0" id="search-form">
       <li class="nav-item">
-        <a class="nav-link text-white" href="/login">Login</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-white" href="/signup">Sign-up</a>
-      </li>--}}
-    {{/if}}
-    </ul>
-    <form class="form-inline my-2 my-lg-0"> {{!-- id="search-form"> --}}
-            <li class="nav-item">
-        <a class="nav-link text-white" href="/login">Login</a>
+        <a class="nav-link text-white" href="/leaderboard">Leaderboard</a>
       </li>
       <li class="nav-item">
        <button id="logout" class="nav-link text-white btn btn-link">Logout</button>
       </li>
+    {{else}}
+    <form class="form-inline my-2 my-lg-0">
+      <li class="nav-item">
+        <a class="nav-link text-white" href="/login">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" href="/signup">Sign-up</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" href="/leaderboard">Leaderboard</a>
+      </li>
+    {{/if}}
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+            <li class="nav-item">
+        <a class="nav-link text-white" href="/login">Login</a>
+      </li>
+
     </form>
   </div>
 </nav>
