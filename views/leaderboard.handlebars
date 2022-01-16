@@ -1,37 +1,3 @@
-{{!-- <div class="container-title">
-    <div class="row align-items-center">
-        <div class="col">
-            <div id="header-leaderboard-container">
-                <h2 class="text-warning" id="header-leaderboard">Leaderboard</h2>
-            </div>
-            <div class="row align-items-center">
-            <div class= "col">
-                <h2 class="text-warning" id="header-leaderboard">User Name:</h2>
-                <a class="nav-link text-white" href="/profile"></a>
-            </div>
-      <div class= "col">
-        <h2 class="text-warning" id="header-leaderboard">Stock Name:</h2>
-      </div>
-      <div class="col">
-        <h2 class="text-warning" id="header-leaderboard">Stock Price:</h2>
-      </div>
-      <div class= "col">
-        <h2 class="text-warning" id="header-leaderboard">Shares:</h2>
-      </div>
-      </div>
-       <div class="account">
-            {{#each accounts }}
-            <section class="account">
-                {{user.username}} {{stock_name}} {{stock_price}} {{shares}}
-            </section>
-            {{/each}}
-        </div>
-    </div>
-  </div>
-</div> --}}
-
-
-
 <div class="container-title">
     <div class="row align-items-center">
         <div class="col">
@@ -56,4 +22,27 @@
             </tr>
             {{/each}}
 </table>
+<br>
+<br>
+<section>
+    <h2 class="text-warning" id="header-leaderboard">Enter Stock</h2>
+    <form class="new-stock-form">
+        <table>
+        <tr>
+            <td><label for="stock-name">Stock Name</label></td>
+            <td><input type="text" id="stock-name" name="stock-name" /></td>
+        </tr>
+        <tr>
+            <td><label for="stock-price">Stock Price</label></td>
+            <td><input type="text" id="stock-price" name="stock-price" /></td>
+        </tr>
+        <tr>
+            <td><label for="shares">Shares</label></td>
+            <td><input type="text" id="shares" name="shares" /></td>
+        </tr>
+        <tr><td colspan = "2"><button type="submit" class="btn">Create New</button></td></tr>
+        </table>
+    </form>
+</section>
+<script src="/javascript/add-stock.js"></script>
             

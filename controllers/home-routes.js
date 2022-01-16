@@ -43,6 +43,7 @@ router.get('/', (req, res) => {
     });
 });
 
+//Account Get
 router.get('/leaderboard', (req,res)=>{
   Account.findAll({
     attributes: [
@@ -75,6 +76,20 @@ router.get('/leaderboard', (req,res)=>{
   });
 })
 
+//Account Post
+router.post('/createaccount', (req, res) => {
+  Account.create({
+    stock_name: req.body.stock_name,
+    stock_price: req.body.stock_price,
+    shares: req.body.shares,
+    user_id: req.session.user_id
+  })
+    .then(dbPostData => res.json(dbPostData))
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
 
 
 // get single post
