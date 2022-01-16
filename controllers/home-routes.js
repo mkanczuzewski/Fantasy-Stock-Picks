@@ -43,7 +43,7 @@ router.get('/', (req, res) => {
     });
 });
 
-router.get('/profile', (req,res)=>{
+router.get('/leaderboard', (req,res)=>{
   Account.findAll({
     attributes: [
       'id',
