@@ -30,30 +30,29 @@
   </div>
 </div> --}}
 
-
-
 <div class="container-title">
     <div class="row align-items-center">
         <div class="col">
             <div id="header-leaderboard-container">
                 <h2 class="text-warning" id="header-leaderboard">Leaderboard</h2>
-            </div>
-<table>
-        <tr>
-        <td>User Name</td>
-        <td>Stock Name</td>
-        <td>Stock Price</td>
-        <td>Shares</td>
-        <td>Total Cost</td>
+             </div>
+<table class="table" >
+       <tr class="row">
+        <td class="text-warning col" id="header-leaderboard">User Name</td>
+        <td class="text-warning col" id="header-leaderboard">Stock Name</td>
+        <td class="text-warning col" id="header-leaderboard">Stock Price</td>
+        <td class="text-warning col" id="header-leaderboard">Shares</td>
+        <td class="text-warning col" id="header-leaderboard">Total Cost</td>
         </tr>
     {{#each accounts }}
-            <tr>
-                <td>{{user.username}}</td> 
-                <td>{{stock_name}}</td> 
-                <td>{{format_currency stock_price}}</td>
-                <td>{{shares}}</td>
-                <td>{{format_currency (totals stock_price shares)}}</td>
+    
+            <tr class="row">
+                <td class="text-warning col" id="header-leaderboard">{{user.username}}</td> 
+                <td class="text-warning col" id="header-leaderboard">{{stock_name}}</td> 
+                <td class="text-warning col" id="header-leaderboard">{{format_currency stock_price}}</td>
+                <td class="text-warning col" id="header-leaderboard">{{shares}}</td>
+                <td class="text-warning col" id="header-leaderboard">{{format_currency (totals stock_price shares)}}</td>
             </tr>
             {{/each}}
-</table>
+  </table>
             
