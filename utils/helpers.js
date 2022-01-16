@@ -18,6 +18,16 @@ module.exports = {
       }
   
       return word;
+    },
+    format_currency: amountToFormat => {
+      var formatter = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+      });
+      return formatter.format(amountToFormat);
+    },
+    totals: (stock_price, shares) => {
+      return stock_price * shares;
     }
   };
   
