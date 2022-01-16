@@ -25,14 +25,14 @@
       <li class="nav-item">
         <a class="nav-link text-white" href="/leaderboard">Leaderboard</a>
       </li>
-      <li class="nav-item">
+      {{!--<li class="nav-item">
        <button id="logout" class="nav-link text-white btn btn-link">Logout</button>
-      </li>
+      </li>--}}
     {{else}}
     <form class="form-inline my-2 my-lg-0">
       <li class="nav-item">
-        <a class="nav-link text-white" href="/login">Login</a>
-      </li>
+       {{!- <a class="nav-link text-white" href="/login">Login</a>
+      </li>--}}
       <li class="nav-item">
         <a class="nav-link text-white" href="/signup">Sign-up</a>
       </li>
@@ -44,6 +44,10 @@
     <form class="form-inline my-2 my-lg-0">
             <li class="nav-item">
         <a class="nav-link text-white" href="/login">Login</a>
+      </li>
+
+       <li class="nav-item">
+       <button id="logout" class="nav-link text-white btn btn-link">Logout</button>
       </li>
 
     </form>
