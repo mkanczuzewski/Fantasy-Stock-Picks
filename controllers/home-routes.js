@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
       'post_text',
       'title',
       'user_id',
-      
+      'created_at'      
     ],
     include: [
       {
