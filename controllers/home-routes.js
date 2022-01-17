@@ -91,6 +91,54 @@ router.post('/createaccount', (req, res) => {
     });
 });
 
+// Profile GET
+router.get('/Profile', (req,res)=>{
+  Account.findAll({
+    attributes: [
+      'id',
+      'stock_name',
+      'stock_price',
+      'shares',
+      'user_id',
+    ],
+    include: [
+      {
+        model: User,
+        attributes: ['username']
+      }
+    ]
+    
+  })
+  .then(dbPostData => {
+    const profiles = dbPostData.map(post => post.get({ plain: true }));
+    console.log(profiles)
+    // marks the page as logginIn for if statements handlebars. 
+    res.render('profile', {
+      profiles,
+      loggedIn: req.session.loggedIn
+    });
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
+})
+
+// Profile POST
+router.post('/Profile', (req,res)=>{
+  Account.create({
+    stock_name: req.body.stock_name,
+    stock_price: req.body.stock_price,
+    shares: req.body.shares,
+    user_id: req.session.user_id
+  })
+    .then(dbPostData => res.json(dbPostData))
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+})
+
 
 // get single post
 router.get('/post/:id', (req, res) => {
