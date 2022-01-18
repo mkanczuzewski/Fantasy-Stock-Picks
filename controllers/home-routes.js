@@ -2,6 +2,7 @@ const router = require('express').Router();
 const res = require('express/lib/response');
 const sequelize = require('../config/connection');
 const { Post, User, Comment, Account} = require('../models');
+const withAuth = require('../utils/auth');
 
 // get all posts for homepage
 router.get('/', (req, res) => {
@@ -91,9 +92,12 @@ router.post('/createaccount', (req, res) => {
     });
 });
 
-// Profile GET
-router.get('/Profile', (req,res)=>{
+// Profile GET account
+router.get('/Profile', withAuth, (req,res)=>{
   Account.findAll({
+    where: {
+      user_id: req.session.user_id
+    },
     attributes: [
       'id',
       'stock_name',
@@ -110,10 +114,11 @@ router.get('/Profile', (req,res)=>{
     
   })
   .then(dbPostData => {
-    const profiles = dbPostData.map(post => post.get({ plain: true }));
+    const profiles = dbPostData.map(profile => profile.get({ plain: true }));
     console.log(profiles)
+    console.log(req.session.user_id)
     // marks the page as logginIn for if statements handlebars. 
-    res.render('profile', {
+    res.render('myprofile', {
       profiles,
       loggedIn: req.session.loggedIn
     });
@@ -124,20 +129,43 @@ router.get('/Profile', (req,res)=>{
   });
 })
 
-// Profile POST
-router.post('/Profile', (req,res)=>{
-  Account.create({
-    stock_name: req.body.stock_name,
-    stock_price: req.body.stock_price,
-    shares: req.body.shares,
-    user_id: req.session.user_id
+// Profile GET post
+router.get('/Profile', withAuth, (req,res)=>{
+  Post.findAll({
+    where: {
+      user_id: req.session.user_id
+    },
+    attributes: [
+      'id',
+      'title',
+      'post_text',
+      'user_id',
+    ],
+    include: [
+      {
+        model: User,
+        attributes: ['username']
+      }
+    ]
+    
   })
-    .then(dbPostData => res.json(dbPostData))
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
+  .then(dbPostData => {
+    const profiles = dbPostData.map(profile => profile.get({ plain: true }));
+    console.log(profiles)
+    console.log(req.session.user_id)
+    // marks the page as logginIn for if statements handlebars. 
+    res.render('myprofile', {
+      profiles,
+      loggedIn: req.session.loggedIn
     });
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
 })
+
+
 
 
 // get single post
@@ -198,16 +226,6 @@ router.get('/login', (req, res) => {
 
 // render sign up page 
 router.get('/signup', (req,res)=>{
-  // User.create({
-  //   username: req.body.username,
-  //   email: req.body.email,
-  //   password: req.body.password
-  // })
-  // .then(dbPostData => res.json(dbPostData))
-  // .catch(err => {
-  //   console.log(err);
-  //   res.status(500).json(err);
-  // });
   res.render('signup')
 })
 
