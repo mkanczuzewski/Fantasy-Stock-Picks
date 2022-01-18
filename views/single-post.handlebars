@@ -1,9 +1,9 @@
-<article class="post">
+<article class="post-single">
   <div class="title">
-    <div>{{post.title}}</div>
-    <div>{{post.post_text}}</div>
+    <div class="text-warning">{{post.title}}</div>
+    <div class="text-white">{{post.post_text}}</div>
   </div>
-  <div class="meta">
+  <div class="text-warning">
     By {{post.user.username}} on {{format_date post.created_at}}
     |
     <a href="/post/{{post.id}}">{{post.comments.length}} comment(s)</a>
@@ -13,22 +13,22 @@
 {{#if loggedIn}}
 <form class="comment-form">
   <div>
-    <input name="comment-body"></input>
+    <textarea name="comment-body" class="form-control bg-dark text-white"></textarea>
   </div>
 
   <div>
-    <button type="submit">add comment</button>
+    <button type="submit" class="btn btn-warning">add comment</button>
   </div>
 </form>
 {{/if}}
 
-<div class="comments">
+<div class="comments-single">
   {{#each post.comments}}
   <section class="comment">
-    <div class="meta">
+    <div class="text-warning">
       {{user.username}} on {{format_date created_at}}
     </div>
-    <div class="text">
+    <div class="text-white">
       {{comment_text}}
     </div>
   </section>

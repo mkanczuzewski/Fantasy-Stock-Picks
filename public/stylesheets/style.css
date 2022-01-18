@@ -92,10 +92,22 @@ body {
   /* margin was originally 320px */
 }
 
+.post-single {
+  margin: 50px 305px;
+  padding: 5px;
+  opacity: 70%;
+}
+
 .comment-form {
     margin: 50px 305px;
     padding: 5px;
     opacity: 70%;
+}
+
+.comments-single {
+  margin: 50px 305px;
+  padding: 5px;
+  opacity: 70%;
 }
 
 .container-title {

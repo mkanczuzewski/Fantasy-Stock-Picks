@@ -1,13 +1,13 @@
 async function commentFormHandler(event) {
   event.preventDefault();
 
-  const comment_text = document.querySelector('input[name="comment-body"]').value.trim();
+  const comment_text = document.querySelector('textarea[name="comment-body"]').value.trim();
 
   const post_id = window.location.toString().split('/')[
     window.location.toString().split('/').length - 1
   ];
 
-  console.log(comment_text,post_id);
+  console.log(comment_text, post_id);
   // if there is a comment -- preventing from users submitting empty comments 
   if (comment_text) {
       const response = await fetch('/api/comments', {
