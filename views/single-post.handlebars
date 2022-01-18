@@ -1,34 +1,39 @@
-<a href="/" style="text-decoration: none" class="text-warning"> &larr; Back to Leaderboard</a>
+<article class="post">
+  <div class="title">
+    <div>{{post.title}}</div>
+    <div>{{post.post_text}}</div>
+  </div>
+  <div class="meta">
+    By {{post.user.username}} on {{format_date post.created_at}}
+    |
+    <a href="/post/{{post.id}}">{{post.comments.length}} comment(s)</a>
+  </div>
+</article>
 
-<!-- displaying articles -->
-{{> single-info post}}
-
-{{#if loggedIn}}  
+{{#if loggedIn}}
 <form class="comment-form">
-  <div class="col-sm-11">
-    <input name="comment-body" class="form-control bg-dark text-white border-none" placeholder=" "></textarea>
+  <div>
+    <textarea name="comment-body"></textarea>
   </div>
 
   <div>
-    <button type="submit" class="text-warning btn"><svg class="bi bi-chat-square-dots" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" d="M14 1H2a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h2.5a2 2 0 0 1 1.6.8L8 14.333 9.9 11.8a2 2 0 0 1 1.6-.8H14a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1 1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
-            <path d="M5 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
-            </svg> Add Comment
-    </button>
+    <button type="submit">add comment</button>
   </div>
 </form>
 {{/if}}
 
-
-<div class="container-comments">
-    <div class="row">
-        <div class="col-12">
-            {{> comments post.comments}}
-        </div>
+<div class="comments">
+  {{#each post.comments}}
+  <section class="comment">
+    <div class="meta">
+      {{user.username}} on {{format_date created_at}}
     </div>
+    <div class="text">
+      {{comment_text}}
+    </div>
+  </section>
+  {{/each}}
 </div>
-
-
-
+{{#if loggedIn}}
 <script src="/javascript/comment.js"></script>
-<script src="/javascript/upvote.js"></script>
+{{/if}}
