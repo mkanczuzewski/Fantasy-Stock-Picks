@@ -12,8 +12,9 @@ This application will allow users to sign up if they are not a member, then once
 
 Please view the site hosted on the Heroku platform:
 
-https://fantasystockpicks2022.herokuapp.com/
-
+Heroku - https://marks-fantasy-stock-picks.herokuapp.com/ <br>
+Heroku Git - https://git.heroku.com/marks-fantasy-stock-picks.git <br>
+GitHub - https://github.com/mkanczuzewski/Fantasy-Stock-Picks <br>
 
 Screenshot:
 ![Screenshot (26)](https://user-images.githubusercontent.com/91295870/150043466-659d2ea2-9672-4c57-88fc-5e09686e634e.png)
