@@ -2,24 +2,26 @@
   "name": "marks-fantasy-stock-picks",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
 
   "scripts": {
-    "test": "jest",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "seed": "node seeds/index.js"
   },
+  
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ening6649/project2.git"
+    "url": "git+https://github.com/mkanczuzewski/Fantasy-Stock-Picks.git"
   },
+
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ening6649/project2/issues"
+    "url": "https://github.com/mkanczuzewski/Fantasy-Stock-Picks/issues"
   },
-  "homepage": "https://github.com/ening6649/project2#readme",
+  "homepage": "https://github.com/mkanczuzewski/Fantasy-Stock-Picks#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "connect-session-sequelize": "^7.1.2",
