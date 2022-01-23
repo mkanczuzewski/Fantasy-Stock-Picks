@@ -10,7 +10,7 @@ To connect to the server run npm start.
 
 This application will allow users to sign up if they are not a member, then once they are logged in they are able to view, leaderboard, add new posts, and comment other post.
 
-Please view the site hosted on the Heroku platform:
+Please view the site hosted on the Heroku platform
 
 Heroku - https://marks-fantasy-stock-picks.herokuapp.com/ <br>
 Heroku Git - https://git.heroku.com/marks-fantasy-stock-picks.git <br>
